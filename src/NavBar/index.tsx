@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="grid grid-cols-3 px-4 py-1 bg-black text-white gap-3">
+      <nav className="grid grid-cols-3 py-1 bg-black text-white gap-3">
         <Link className="justify-self-center col-start-2 py-2" href="/">
           <img src="./goliath-logo.png" width={100}></img>
         </Link>

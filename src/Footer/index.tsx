@@ -2,7 +2,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col pt-14 pb-4 bg-clr1 font-avenir items-center justify-center gap-2">
+    <footer className="flex flex-col pt-10 pb-2 md:text-lg text-sm bg-clr1 font-avenir items-center justify-center gap-1">
       <div className="flex gap-4 cursor-pointer">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>

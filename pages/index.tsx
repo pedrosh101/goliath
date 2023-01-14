@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { A11y, Autoplay } from "swiper";
 
@@ -22,7 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex min-h-screen bg-clr1 items-center justify-center py-2 font-avenir">
-        <main className="grid grid-cols-2 min-h-screen w-full items-center justify-center px-16 text-center gap-8">
+        <main className="grid md:grid-cols-2 min-h-screen items-center justify-center p-16 text-center gap-16">
           <div className="text-6xl">
             Exquisite Parfums by Goliath
             <Link href="/novo-produto">
@@ -38,49 +37,45 @@ const Home: NextPage = () => {
             slidesPerView={1}
             loop={true}
             autoplay={{
-              delay: 3000,
+              delay: 3500,
               disableOnInteraction: false,
             }}
-            className="bg-slate-600 max-w-prose relative"
+            className="w-full md:w-8/12"
           >
-            <SwiperSlide className="relative">
+            <SwiperSlide>
               <Link href="/parf1">
-                <Image
+                <img
                   src="/img1.jpg"
                   alt="parfum1"
-                  width={700}
-                  height={700}
-                ></Image>
+                  className="object-cover"
+                ></img>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link href="/parf2">
-                <Image
+                <img
                   src="/img2.jpg"
                   alt="parfum2"
-                  width={700}
-                  height={700}
-                ></Image>
+                  className="object-cover"
+                ></img>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link href="/parf3">
-                <Image
+                <img
                   src="/img3.jpg"
                   alt="parfum3"
-                  width={700}
-                  height={700}
-                ></Image>
+                  className="object-cover"
+                ></img>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link href="/parf4">
-                <Image
+                <img
                   src="/img4.jpg"
                   alt="parfum4"
-                  width={700}
-                  height={700}
-                ></Image>
+                  className="object-cover"
+                ></img>
               </Link>
             </SwiperSlide>
           </Swiper>
