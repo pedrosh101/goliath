@@ -3,14 +3,14 @@ import React from "react";
 export const Footer = () => {
   return (
     <footer className="flex flex-col pt-14 pb-4 bg-clr1 font-avenir items-center justify-center gap-2">
-      <div className="flex gap-4">
+      <div className="flex gap-4 cursor-pointer">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
         <a className="link link-hover">Press kit</a>
       </div>
       <div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 cursor-pointer">
           <a>
             <svg
               xmlns="http://www.w3.org/2000/svg"
