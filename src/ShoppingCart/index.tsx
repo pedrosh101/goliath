@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/index";
 import { IParfum } from "../@types/main";
 import NavBar from "../NavBar";
-import { Footer } from '../Footer/index';
+import { Footer } from "../Footer/index";
 
 export const ShoppingCart = () => {
   const {
@@ -18,18 +18,18 @@ export const ShoppingCart = () => {
   return (
     <>
       <NavBar />
-      <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-16">
+      <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-8 md:p-16">
         <h1 className="text-4xl">Our Parfum Collection</h1>
-        <ul className="flex">
+        <ul className="grid grid-cols-2 md:flex">
           {parfums.map((parfum: IParfum) => (
             <li className="flex flex-col w-40 text-center pb-8">
               <Link href={parfum.route}>
                 <img src={parfum.image} className="scale-75" />
-                <p>{parfum.title}</p>
+                <p className="-mt-4">{parfum.title}</p>
               </Link>
               <p>€{parfum.price}</p>
               <button
-                className="bg-slate-200 mx-2"
+                className="bg-red-200 mx-5 mt-1 p-1"
                 onClick={() => handleAddToCart(parfum.id)}
               >
                 Add To Cart
@@ -40,47 +40,52 @@ export const ShoppingCart = () => {
         <h1 className="text-4xl">Shopping Cart</h1>
         <ul>
           {shoppingCart.map((item: any) => (
-            <li className="flex justify-center bg-fuchsia-200 m-3 gap-4 p-3">
+            <li className="bg-red-200 my-3 p-3">
               <p>Perfume: {item.product.title}</p>
               <p>Price: {item.product.price}</p>
-              <p>Quantity: {item.quantity}</p>
-              <button onClick={() => handleRemoveFromCart(item.product.id)}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={4}
-                  stroke="currentColor"
-                  className="w-3 h-3"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 12h-15"
-                  />
-                </svg>
-              </button>
-              <button onClick={() => handleAddToCart(item.product.id)}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={4}
-                  stroke="currentColor"
-                  className="w-3 h-3"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
-              </button>
+              <div className="flex gap-3">
+                <p>Quantity: {item.quantity}</p>
+
+                <div className="flex gap-2">
+                  <button onClick={() => handleRemoveFromCart(item.product.id)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={4}
+                      stroke="currentColor"
+                      className="w-3 h-3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 12h-15"
+                      />
+                    </svg>
+                  </button>
+                  <button onClick={() => handleAddToCart(item.product.id)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={4}
+                      stroke="currentColor"
+                      className="w-3 h-3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
               <p>Total: {item.quantity * item.product.price}</p>
             </li>
           ))}
         </ul>
-        <div className="flex flex-col">
+        <div className="items-center gap-2">
           <h2 className="text-2xl flex">
             {" "}
             <svg
@@ -99,7 +104,7 @@ export const ShoppingCart = () => {
             </svg>{" "}
             ({totalCart})
           </h2>
-          <button onClick={handleCleanCart} className="w-28">
+          <button onClick={handleCleanCart} className="w-42  font-bold">
             Clean Cart
           </button>
         </div>
