@@ -1,13 +1,12 @@
 import Link from "next/link";
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/index";
+import { parfum } from "../../data/parfum";
 import { IParfum } from "../@types/main";
-import NavBar from "../NavBar";
-import { Footer } from "../Footer/index";
+
 
 export const ShoppingCart = () => {
   const {
-    parfums,
     shoppingCart,
     handleAddToCart,
     handleRemoveFromCart,
@@ -17,11 +16,10 @@ export const ShoppingCart = () => {
 
   return (
     <>
-      <NavBar />
       <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-8 md:p-16">
         <h1 className="text-4xl">Our Parfum Collection</h1>
         <ul className="grid grid-cols-2 md:flex">
-          {parfums.map((parfum: IParfum) => (
+          {parfum.map((parfum: IParfum) => (
             <li className="flex flex-col w-40 text-center pb-8">
               <Link href={parfum.route}>
                 <img src={parfum.image} className="scale-75" />
@@ -115,7 +113,6 @@ export const ShoppingCart = () => {
           <h1>finish</h1>
         </Link>
       </section>
-      <Footer />
     </>
   );
 };

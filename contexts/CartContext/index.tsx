@@ -1,34 +1,11 @@
 import { createContext, useState } from "react";
+import { parfum } from '../../data/parfum';
 import {
-  IParfum,
   IShoppingCartItem,
   CartProviderType,
 } from "../../src/@types/main";
 
-const parfums: IParfum[] = [
-  {
-    id: 1,
-    title: "Oceanic Pearl",
-    price: 400,
-    image: "/img1.jpg",
-    route: "/parf1",
-  },
-  {
-    id: 2,
-    title: "Montmartre's Pride",
-    price: 420,
-    image: "/img2.jpg",
-    route: "/parf2",
-  },
-  { id: 3, title: "Nautic", price: 500, image: "/img3.jpg", route: "/parf3" },
-  {
-    id: 4,
-    title: "Hidden Meadow",
-    price: 700,
-    image: "/img4.jpg",
-    route: "/parf4",
-  },
-];
+
 
 export const CartContext = createContext({});
 
@@ -36,12 +13,12 @@ export const CartProvider = ({ children }: CartProviderType) => {
   const [shoppingCart, setShoppingCart] = useState<IShoppingCartItem[]>([]);
 
   const handleAddToCart = (id: number) => {
-    const parfum = parfums.find((parfum) => parfum.id === id);
+    const parfumie = parfum.find((parfum) => parfum.id === id);
     const alreadyInShoppingCart = shoppingCart.find(
       (item) => item.product.id === id
     );
 
-    // if parfum already is in the cart
+    // if parfum is in the cart already
     if (alreadyInShoppingCart) {
       const newShoppingCart: IShoppingCartItem[] = shoppingCart.map((item) => {
         if (item.product.id === id)
@@ -57,7 +34,7 @@ export const CartProvider = ({ children }: CartProviderType) => {
 
     // if parfum isn't in the cart
     const cartItem: IShoppingCartItem = {
-      product: parfum!,
+      product: parfumie!,
       quantity: 1,
     };
     const newShoppingCart: IShoppingCartItem[] = [...shoppingCart, cartItem];
@@ -101,7 +78,6 @@ export const CartProvider = ({ children }: CartProviderType) => {
     <CartContext.Provider
       value={{
         shoppingCart,
-        parfums,
         handleAddToCart,
         handleRemoveFromCart,
         totalCart,

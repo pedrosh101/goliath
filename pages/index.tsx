@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <main className="grid md:grid-cols-2 min-h-screen items-center justify-center p-16 text-center gap-16">
           <div className="text-6xl">
             Exquisite Parfums by Goliath
-            <Link href="/novo-produto">
+            <Link href="/buy-section">
               <h3 className="text-3xl font-bold text-red-200 mt-6">
                 Our Collection
               </h3>

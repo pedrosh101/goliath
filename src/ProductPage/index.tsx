@@ -11,7 +11,7 @@ const ProductPage = ({ title, description, image, tones }: IProduct) => {
           <h1 className="text-5xl md:text-6xl mb-5">{title}</h1>
           <p className="text-2xl">{description}</p>
           <p className="text-1xl md:text-2xl italic mt-4 mb-2">Main Tones: {tones}</p>
-          <Link href="/novo-produto">
+          <Link href="/buy-section">
             <h3 className="text-3xl font-bold text-red-200 mt-2 hover:text-red-300">Buy It</h3>
           </Link>
         </div>
