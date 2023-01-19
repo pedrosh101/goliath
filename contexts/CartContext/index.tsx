@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { parfum } from '../../data/parfum';
+import { parfums } from '../../data/parfums';
 import {
   IShoppingCartItem,
   CartProviderType,
@@ -13,7 +13,7 @@ export const CartProvider = ({ children }: CartProviderType) => {
   const [shoppingCart, setShoppingCart] = useState<IShoppingCartItem[]>([]);
 
   const handleAddToCart = (id: number) => {
-    const parfumie = parfum.find((parfum) => parfum.id === id);
+    const parfum = parfums.find((parfum) => parfum.id === id);
     const alreadyInShoppingCart = shoppingCart.find(
       (item) => item.product.id === id
     );
@@ -34,7 +34,7 @@ export const CartProvider = ({ children }: CartProviderType) => {
 
     // if parfum isn't in the cart
     const cartItem: IShoppingCartItem = {
-      product: parfumie!,
+      product: parfum!,
       quantity: 1,
     };
     const newShoppingCart: IShoppingCartItem[] = [...shoppingCart, cartItem];

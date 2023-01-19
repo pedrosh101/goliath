@@ -40,7 +40,7 @@ const Home: NextPage = () => {
               delay: 3500,
               disableOnInteraction: false,
             }}
-            className="w-full md:w-8/12"
+            className="w-full md:w-8/12 shadow-lg shadow-gray-700"
           >
             <SwiperSlide>
               <Link href="/parf1">

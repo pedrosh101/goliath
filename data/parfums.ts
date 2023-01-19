@@ -1,4 +1,4 @@
-export const parfum = [
+export const parfums = [
   {
     id: 1,
     title: "Oceanic Pearl",

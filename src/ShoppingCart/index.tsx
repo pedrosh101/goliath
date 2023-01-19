@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/index";
-import { parfum } from "../../data/parfum";
+import { parfums } from "../../data/parfums";
 import { IParfum } from "../@types/main";
 
 
@@ -19,15 +19,15 @@ export const ShoppingCart = () => {
       <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-8 md:p-16">
         <h1 className="text-4xl">Our Parfum Collection</h1>
         <ul className="grid grid-cols-2 md:flex">
-          {parfum.map((parfum: IParfum) => (
-            <li className="flex flex-col w-40 text-center pb-8">
+          {parfums.map((parfum: IParfum) => (
+            <li className="flex flex-col w-40 text-center pb-8" key={parfum.id}>
               <Link href={parfum.route}>
                 <img src={parfum.image} className="scale-75" />
                 <p className="-mt-4">{parfum.title}</p>
               </Link>
               <p>€{parfum.price}</p>
               <button
-                className="bg-red-200 mx-5 mt-1 p-1"
+                className="bg-red-200 mx-5 mt-1 p-1 border-2 border-black shadow-lg"
                 onClick={() => handleAddToCart(parfum.id)}
               >
                 Add To Cart
@@ -38,7 +38,7 @@ export const ShoppingCart = () => {
         <h1 className="text-4xl">Shopping Cart</h1>
         <ul>
           {shoppingCart.map((item: any) => (
-            <li className="bg-red-200 my-3 p-3">
+            <li className="bg-red-200 my-3 p-3 border-2 border-black shadow-lg" key={item.product.id}>
               <p>Perfume: {item.product.title}</p>
               <p>Price: {item.product.price}</p>
               <div className="flex gap-3">
