@@ -2,10 +2,10 @@ import Link from "next/link";
 import React from "react";
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { ReduceReturnType } from "../@types/main";
+import { IShoppingCartItem } from "../@types/main";
 
 const NavBar = () => {
-  const { totalCart }: ReduceReturnType = useContext(CartContext);
+  const { totalCart, shoppingCart }: any = useContext(CartContext);
   const [click, setClick] = useState(true);
 
   const handleClick = () => setClick(!click);
@@ -16,7 +16,7 @@ const NavBar = () => {
         <Link className="justify-self-center col-start-2 py-2" href="/">
           <img src="./goliath-logo.png" width={100}></img>
         </Link>
-        <div className="flex justify-self-end items-center pr-4">
+        <div className="flex justify-self-end items-center pr-4 cursor-pointer">
           <div onClick={handleClick}>
             {click ? (
               <div>
@@ -35,21 +35,61 @@ const NavBar = () => {
                   />
                 </svg>
                 {totalCart !== 0 ? (
-                  <p className="absolute top-1 right-1 bg-red-500 p-1 rounded-md">!</p>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6 absolute top-1 right-1 bg-red-500 p-1 rounded-md"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
+                      />
+                    </svg>
+
                 ) : (
                   ""
                 )}
               </div>
             ) : (
-              <div>X</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             )}
           </div>
           <div className="flex items-center relative">
             {click ? (
               <div></div>
             ) : (
-              <div className="flex bg-slate-600 absolute -right-full top-8">
-                <p className="">€{totalCart}</p>
+              <div className="flex flex-col bg-red-200 text-black absolute -right-full top-8 p-4 z-20">
+                <ul>
+                  {shoppingCart.map((item: IShoppingCartItem) => (
+                    <li
+                      className="flex justify-between p-2 gap-2 w-80"
+                      key={item.product.id}
+                    >
+                      <p>{item.product.title}</p>
+                      <img src={item.product.image} width={80}></img>
+                      <p>{item.quantity}</p>
+                    </li>
+                  ))}
+                </ul>
+                <p>€{totalCart}</p>
               </div>
             )}
           </div>

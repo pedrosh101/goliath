@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/index";
 import { parfums } from "../../data/parfums";
-import { IParfum } from "../@types/main";
+import { IParfum, IShoppingCartItem } from "../@types/main";
 
 
 export const ShoppingCart = () => {
@@ -37,7 +37,7 @@ export const ShoppingCart = () => {
         </ul>
         <h1 className="text-4xl">Shopping Cart</h1>
         <ul>
-          {shoppingCart.map((item: any) => (
+          {shoppingCart.map((item: IShoppingCartItem) => (
             <li className="bg-red-200 my-3 p-3 border-2 border-black shadow-lg" key={item.product.id}>
               <p>Perfume: {item.product.title}</p>
               <p>Price: {item.product.price}</p>
