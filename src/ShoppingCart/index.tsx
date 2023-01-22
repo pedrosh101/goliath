@@ -4,7 +4,6 @@ import { CartContext } from "../../contexts/CartContext/index";
 import { parfums } from "../../data/parfums";
 import { IParfum, IShoppingCartItem } from "../@types/main";
 
-
 export const ShoppingCart = () => {
   const {
     shoppingCart,
@@ -20,26 +19,38 @@ export const ShoppingCart = () => {
         <h1 className="text-4xl">Our Parfum Collection</h1>
         <ul className="grid grid-cols-2 md:flex">
           {parfums.map((parfum: IParfum) => (
-            <li className="flex flex-col w-40 text-center pb-8" key={parfum.id}>
+            <li
+              className="flex flex-col md:flex-row text-center my-6"
+              key={parfum.id}
+            >
               <Link href={parfum.route}>
-                <img src={parfum.image} className="scale-75" />
-                <p className="-mt-4">{parfum.title}</p>
+                <img src={parfum.image} className="p-4 md:p-0 md:w-36" />
               </Link>
-              <p>€{parfum.price}</p>
-              <button
-                className="bg-red-200 mx-5 mt-1 p-1 border-2 border-black shadow-lg"
-                onClick={() => handleAddToCart(parfum.id)}
-              >
-                Add To Cart
-              </button>
+              <div className="flex flex-col md:pr-14 md:pl-8 justify-center items-center">
+                <p className="font-semibold">{parfum.title}</p>
+                <div className="flex justify-center items-center">
+                  <p>€{parfum.price}&nbsp;</p>
+                  <p className="text-sm">({parfum.ml}ml)</p>
+                </div>
+
+                <button
+                  className="bg-red-200 mt-2 py-1 px-4 w-fit shadow-lg"
+                  onClick={() => handleAddToCart(parfum.id)}
+                >
+                  Add To Cart
+                </button>
+              </div>
             </li>
           ))}
         </ul>
-        <h1 className="text-4xl">Shopping Cart</h1>
-        <ul>
+        <h1 className="text-4xl mt-4">Shopping Cart</h1>
+        <ul className="grid md:grid-cols-6 md:gap-4 mt-6">
           {shoppingCart.map((item: IShoppingCartItem) => (
-            <li className="bg-red-200 my-3 p-3 border-2 border-black shadow-lg" key={item.product.id}>
-              <p>Perfume: {item.product.title}</p>
+            <li className="bg-red-200 my-3 p-4 shadow-lg" key={item.product.id}>
+              <div className="flex">
+            <p>Perfume:&nbsp;</p>
+              <p className="font-semibold">{item.product.title}</p>
+              </div>
               <p>Price: {item.product.price}</p>
               <div className="flex gap-3">
                 <p>Quantity: {item.quantity}</p>

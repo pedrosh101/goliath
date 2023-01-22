@@ -10,6 +10,7 @@ export interface IParfum {
   id: number;
   title: string;
   price: number;
+  ml: number;
   image: string;
   route: string;
 }
@@ -18,6 +19,7 @@ export type Parfum = {
   id: number;
   title: string;
   price: number;
+  ml: number;
   image: string;
   route: string;
 }[];
