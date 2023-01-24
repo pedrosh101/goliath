@@ -16,8 +16,12 @@ const NavBar = () => {
         <Link className="justify-self-center col-start-2 py-2" href="/">
           <img src="./goliath-logo.png" width={100}></img>
         </Link>
-        <div className="flex justify-self-end items-center pr-4 cursor-pointer">
-          <div onClick={handleClick}>
+        <div className="flex justify-self-end items-center">
+          <button
+            onClick={handleClick}
+            disabled={totalCart == 0}
+            className="pr-4 cursor-pointer"
+          >
             {click ? (
               <div>
                 <svg
@@ -69,27 +73,39 @@ const NavBar = () => {
                 />
               </svg>
             )}
-          </div>
+          </button>
           <div className="flex items-center relative">
             {click ? (
               ""
             ) : (
-              <div className="flex flex-col bg-red-200 text-black absolute -right-full top-8 p-4 z-20 font-medium">
+              <div className="flex flex-col bg-red-200 text-black absolute -right-full top-8 p-4 z-20">
                 <ul>
                   {shoppingCart.map((item: IShoppingCartItem) => (
-                    <li className="flex flex-col p-2 gap-2 w-80" key={item.product.id}>
-                      <div className="flex p-2 gap-2 w-80">
-                        <img src={item.product.image} width={70} className="mr-2"></img>
-                        <p>{item.quantity}x</p>
-                        <p>{item.product.title}</p>
+                    <li
+                      className="flex flex-col p-2 gap-2"
+                      key={item.product.id}
+                    >
+                      <div className="flex p-2 gap-2 w-56">
+                        <img
+                          src={item.product.image}
+                          width={50}
+                          className="mr-2"
+                        ></img>
+                        <div>
+                          <p className="font-medium">{item.product.title}</p>
+                          <p>
+                            {item.quantity} x €{item.product.price}
+                          </p>
+                        </div>
                       </div>
-                      <div className="h-0.5 bg-neutral-600 w-full"></div>
+                      <div className="h-0.5 bg-neutral-500 w-full"></div>
                     </li>
                   ))}
                 </ul>
-                <div className="flex justify-between mt-3">
-                <p>Total:</p>
-                <p>€{totalCart}</p>
+
+                <div className="flex justify-between mt-3 font-medium">
+                  <p>Total:</p>
+                  <p>€{totalCart}</p>
                 </div>
               </div>
             )}

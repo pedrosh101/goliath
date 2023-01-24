@@ -15,7 +15,7 @@ export const ShoppingCart = () => {
 
   return (
     <>
-      <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-8 md:p-16">
+      <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-6 md:p-16">
         <h1 className="text-4xl">Our Parfum Collection</h1>
         <ul className="grid grid-cols-2 md:flex">
           {parfums.map((parfum: IParfum) => (
@@ -32,7 +32,6 @@ export const ShoppingCart = () => {
                   <p>€{parfum.price}&nbsp;</p>
                   <p className="text-sm">({parfum.ml}ml)</p>
                 </div>
-
                 <button
                   className="bg-red-200 mt-2 py-1 px-4 w-fit shadow-lg"
                   onClick={() => handleAddToCart(parfum.id)}
@@ -44,58 +43,78 @@ export const ShoppingCart = () => {
           ))}
         </ul>
         <h1 className="text-4xl mt-4">Shopping Cart</h1>
-        <ul className="grid md:grid-cols-6 md:gap-4 mt-6">
+        <ul className="grid my-6 md:w-1/2">
+          <div className="grid grid-cols-4 gap-16">
+            <p>Product</p>
+            <p className="ml-4">Price</p>
+            <p>Quantity</p>
+            <p>Total</p>
+          </div>
           {shoppingCart.map((item: IShoppingCartItem) => (
-            <li className="bg-red-200 my-3 p-4 shadow-lg" key={item.product.id}>
-              <div className="flex">
-            <p>Perfume:&nbsp;</p>
-              <p className="font-semibold">{item.product.title}</p>
-              </div>
-              <p>Price: {item.product.price}</p>
-              <div className="flex gap-3">
-                <p>Quantity: {item.quantity}</p>
-
-                <div className="flex gap-2">
-                  <button onClick={() => handleRemoveFromCart(item.product.id)}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={4}
-                      stroke="currentColor"
-                      className="w-3 h-3"
+            <li className="mt-3 " key={item.product.id}>
+              <div className="grid grid-cols-4 gap-16 items-center">
+                <p className="font-semibold">{item.product.title}</p>
+                <p className="ml-4">€{item.product.price}</p>
+                <div className="gap-3">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleRemoveFromCart(item.product.id)}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 12h-15"
-                      />
-                    </svg>
-                  </button>
-                  <button onClick={() => handleAddToCart(item.product.id)}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={4}
-                      stroke="currentColor"
-                      className="w-3 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 4.5v15m7.5-7.5h-15"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={4}
+                        stroke="currentColor"
+                        className="w-3 h-3"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 12h-15"
+                        />
+                      </svg>
+                    </button>
+                    <p>{item.quantity}</p>
+                    <button onClick={() => handleAddToCart(item.product.id)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={4}
+                        stroke="currentColor"
+                        className="w-3 h-3"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 4.5v15m7.5-7.5h-15"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
+                <p>€{item.quantity * item.product.price}</p>
               </div>
-              <p>Total: {item.quantity * item.product.price}</p>
             </li>
           ))}
         </ul>
-        <div className="items-center gap-2">
-          <h2 className="text-2xl flex">
+
+        <div className="flex gap-2 mt-2">
+          <div className="border-2 bg-red-200 border-black px-6 py-1">
+            <button onClick={handleCleanCart} className="font-bold">
+              Clean Cart
+            </button>
+          </div>
+
+          <div className="flex border-2 border-black px-6 items-center">
+            <Link href="/">
+              <button className="font-bold text-red-200 hover:text-red-300 ">
+                Finish
+              </button>
+            </Link>
+          </div>
+          <h2 className="flex items-center md: ml-4">
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +122,7 @@ export const ShoppingCart = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5 mr-1"
             >
               <path
                 strokeLinecap="round"
@@ -113,16 +132,7 @@ export const ShoppingCart = () => {
             </svg>{" "}
             ({totalCart})
           </h2>
-          <button onClick={handleCleanCart} className="w-42  font-bold">
-            Clean Cart
-          </button>
         </div>
-        <Link
-          className="text-3xl font-bold text-red-200 mt-2 hover:text-red-300 max-w-0"
-          href="/"
-        >
-          <h1>finish</h1>
-        </Link>
       </section>
     </>
   );

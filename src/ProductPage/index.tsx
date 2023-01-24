@@ -10,16 +10,20 @@ const ProductPage = ({ title, description, image, tones }: IProduct) => {
         <div className="flex flex-col md:pl-40 text-end justify-center">
           <h1 className="text-5xl md:text-6xl mb-5">{title}</h1>
           <p className="text-2xl">{description}</p>
-          <p className="text-1xl md:text-2xl italic mt-4 mb-2">Main Tones: {tones}</p>
+          <p className="text-1xl md:text-2xl italic mt-4 mb-2">
+            Main Tones: {tones}
+          </p>
           <Link href="/buy-section">
-            <h3 className="text-3xl font-bold text-red-200 mt-2 hover:text-red-300">Buy It</h3>
+            <h3 className="text-3xl font-bold text-red-200 mt-2 hover:text-red-300 mb-8">
+              Buy It
+            </h3>
           </Link>
         </div>
         <div className="md:w-9/12">
           <img
             src={image}
             alt="parfum"
-            className="pt-16 md:object-left md:pl-28 md:p-12"
+            className="md:object-left md:pl-28 md:p-12  shadow-lg shadow-gray-700"
           ></img>
         </div>
       </div>
