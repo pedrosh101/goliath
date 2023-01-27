@@ -107,6 +107,12 @@ const NavBar = () => {
                   <p>Total:</p>
                   <p>€{totalCart}</p>
                 </div>
+
+                <Link href="/" className="w-fit">
+                  <div className="border-2 bg-red-200 border-black mt-3 px-6 py-1">
+                    <button className="font-bold">Finish</button>
+                  </div>
+                </Link>
               </div>
             )}
           </div>

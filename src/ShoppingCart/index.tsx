@@ -17,14 +17,14 @@ export const ShoppingCart = () => {
     <>
       <section className="bg-clr1 flex flex-col min-h-screen font-avenir p-6 md:p-16">
         <h1 className="text-4xl">Our Parfum Collection</h1>
-        <ul className="grid grid-cols-2 md:flex">
+        <ul className="grid grid-cols-2 md:grid-cols-4">
           {parfums.map((parfum: IParfum) => (
             <li
               className="flex flex-col md:flex-row text-center my-6"
               key={parfum.id}
             >
               <Link href={parfum.route}>
-                <img src={parfum.image} className="p-4 md:p-0 md:w-36" />
+                <img src={parfum.image} className="p-4 md:p-0 md:w-32" />
               </Link>
               <div className="flex flex-col md:pr-14 md:pl-8 justify-center items-center">
                 <p className="font-semibold">{parfum.title}</p>
@@ -42,6 +42,7 @@ export const ShoppingCart = () => {
             </li>
           ))}
         </ul>
+
         <h1 className="text-4xl mt-4">Shopping Cart</h1>
         <ul className="grid my-6 md:w-1/2">
           <div className="grid grid-cols-4 gap-16">
@@ -102,20 +103,20 @@ export const ShoppingCart = () => {
 
         <div className="flex gap-2 mt-2">
           <div className="border-2 bg-red-200 border-black px-6 py-1">
-            <button onClick={handleCleanCart} className="font-bold">
-              Clean Cart
-            </button>
+            <Link href="/">
+              <button className="font-bold">Finish</button>
+            </Link>
           </div>
 
           <div className="flex border-2 border-black px-6 items-center">
-            <Link href="/">
-              <button className="font-bold text-red-200 hover:text-red-300 ">
-                Finish
-              </button>
-            </Link>
+            <button
+              onClick={handleCleanCart}
+              className="font-bold text-red-200 hover:text-red-300 "
+            >
+              Clean Cart
+            </button>
           </div>
           <h2 className="flex items-center md: ml-4">
-            {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -129,8 +130,8 @@ export const ShoppingCart = () => {
                 strokeLinejoin="round"
                 d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
               />
-            </svg>{" "}
-            ({totalCart})
+            </svg>
+            <p>(€{totalCart})</p>
           </h2>
         </div>
       </section>

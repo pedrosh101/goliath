@@ -19,11 +19,11 @@ const ProductPage = ({ title, description, image, tones }: IProduct) => {
             </h3>
           </Link>
         </div>
-        <div className="md:w-9/12">
+        <div className="md:w-7/12">
           <img
             src={image}
             alt="parfum"
-            className="md:object-left md:pl-28 md:p-12  shadow-lg shadow-gray-700"
+            className="md:object-left md:ml-28 md:12 shadow-lg shadow-gray-700"
           ></img>
         </div>
       </div>

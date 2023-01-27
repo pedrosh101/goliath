@@ -44,38 +44,37 @@ const Home: NextPage = () => {
           >
             <SwiperSlide>
               <Link href="/parf1">
-                <img
-                  src="/img1.jpg"
-                  alt="parfum1"
-                  className="object-cover"
-                ></img>
+                <img src="/img1.jpg" alt="parfum1"></img>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link href="/parf2">
-                <img
-                  src="/img2.jpg"
-                  alt="parfum2"
-                  className="object-cover"
-                ></img>
+                <img src="/img2.jpg" alt="parfum2"></img>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link href="/parf3">
-                <img
-                  src="/img3.jpg"
-                  alt="parfum3"
-                  className="object-cover"
-                ></img>
+                <img src="/img3.jpg" alt="parfum3"></img>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link href="/parf4">
-                <img
-                  src="/img4.jpg"
-                  alt="parfum4"
-                  className="object-cover"
-                ></img>
+                <img src="/img4.jpg" alt="parfum4"></img>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href="/parf5">
+                <img src="/img5.jpg" alt="parfum5"></img>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href="/parf6">
+                <img src="/img6.jpg" alt="parfum6"></img>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href="/parf7">
+                <img src="/img7.jpg" alt="parfum7"></img>
               </Link>
             </SwiperSlide>
           </Swiper>

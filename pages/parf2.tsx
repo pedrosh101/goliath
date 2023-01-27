@@ -5,7 +5,6 @@ import ProductPage from "../src/ProductPage";
 const Parf2 = () => {
   const data = {
     title: "Montmartre's Pride",
-    price: 420,
     description:
       "Vivamus sollicitudin sapien eget dictum accumsan. Etiam pellentesque, justo ac tincidunt elementum, velit ex vulputate purus, ac luctus velit sem nec eros. Nam at non lectus egestas cursus mollis sit amet nisl. In tortor aliquet dapibus eget in justo.",
     image: "/img2.jpg",

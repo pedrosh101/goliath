@@ -24,4 +24,28 @@ export const parfums = [
     image: "/img4.jpg",
     route: "/parf4",
   },
+  {
+    id: 5,
+    title: "Fresco",
+    price: 180,
+    ml: 70,
+    image: "/img5.jpg",
+    route: "/parf5",
+  },
+  {
+    id: 6,
+    title: "Quiet Zephyr",
+    price: 220,
+    ml: 90,
+    image: "/img6.jpg",
+    route: "/parf6",
+  },
+  {
+    id: 7,
+    title: "Rose's Glance",
+    price: 220,
+    ml: 70,
+    image: "/img7.jpg",
+    route: "/parf7",
+  },
 ];
